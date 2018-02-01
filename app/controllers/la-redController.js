@@ -42,6 +42,13 @@
                 });
             }           
 
+             $scope.home_seccion_internacional = function(){
+                $http.get(urlBlueboxApi+'headers/23')
+                .then(function(res){
+                    $scope.home_seccion_internacional = res.data;
+                });
+            }           
+
             $scope.services = function(){
                 $http.get(urlBlueboxApi+'services')
                 .then(function(res){
@@ -86,6 +93,10 @@
         .controller('la-red-internacionalController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion',function ($scope, $http, $rootScope, dataResource, getSeccion) {
             $scope.initSeccion = function() {            
                 getSeccion.seccion($scope,dataResource,'headers',3);
+                $http.get(urlBlueboxApi+'contacts')
+                .then(function(res){
+                    $scope.contacts = res.data;
+                });
             };
         }])
     // SECION:EN QUE TRABAJAMOS__________________________________________________________________________________________________________________________
@@ -212,7 +223,7 @@
             $scope.initSeccion = function(){
                 $scope.loading = false;
                 $scope.base_img = base_img;
-                $http.get(urlBlueboxApi+'publicaciones/1')
+                $http.get(urlBlueboxApi+'publicaciones/2')
                 .then(function(res){
                     $scope.data = res.data;
                 });
@@ -230,7 +241,7 @@
             $scope.initSeccion = function(){
                 $scope.loading = false;
                 $scope.base_img = base_img;
-                $http.get(urlBlueboxApi+'publicaciones/2')
+                $http.get(urlBlueboxApi+'publicaciones/1')
                 .then(function(res){
                     $scope.data = res.data;
                 });

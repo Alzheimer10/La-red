@@ -17,6 +17,14 @@
 			<div class="container-fluid">
 			    <h1 class="color-font-5">LA RED INTERNACION</h1>
 				<div ng-bind-html="data.content"></div>
+            		<div ng-repeat="item in contacts">
+						<h2>{{item.name}}</h2>
+						<div class="container_direccion">
+							<p>{{item.address}}</p>
+							<a href="tel:{{item.phone}}">{{item.phone}}</p>
+							<a href="mailto:{{item.email}}">{{item.email}}</p>
+						</div>
+	            	</div>
 			</div>
 		</div>
 	</div>
