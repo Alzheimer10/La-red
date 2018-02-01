@@ -1,27 +1,9 @@
 (function(){
-	'use strict';
-	angular
+    'use strict';
+    angular
     .module('appMain')
-        .factory('getSeccion', ['$timeout','dataResource',
-          function($timeout, dataResource) {
-            return {
-              seccion: function($scope,dataResource,get,id) {
-                $scope.loading = false;
-                if (id!='')
-                    $scope.data = dataResource.data(get,id);
-                else{
-                    $scope.data = dataResource.dataAll(get);
-                }
-                $scope.base_img = $scope.data[2].base_img;
-                $scope.data = $scope.data[1].data;
-                $timeout( function(){
-                    $scope.loading = true;
-                }, 500 );
-              }
-            };
-          }])
     // SECION:HOME__________________________________________________________________________________________________________________________
-        .controller('homeController',['$scope', '$http', '$rootScope', 'base_img', function ($scope, $http, $rootScope, base_img) {
+        .controller('homeController',['$scope', '$http', 'base_img', function ($scope, $http, base_img) {
             $scope.loading = false;
             $scope.slider = [];
             $scope.base_img = base_img;
@@ -74,190 +56,317 @@
                     swiper('swiper_home',5000,true);
                 });
             }
-            $scope.loading = true;
+                    $scope.loading = true;
         }])
     // SECION:LA-RED__________________________________________________________________________________________________________________________
         // controller:la-red -url:la-red
-        .controller('la-redController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion) {
-            $scope.initSeccion = function() {
-                getSeccion.seccion($scope,dataResource,'headers',1);
-            };
+        .controller('la-redController',['$scope', '$http', function ($scope, $http) {
+            $scope.loading = false;
+            $scope.initSeccion = function(){
+                $http.get(urlBlueboxApi+'headers/1')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
+            }
         }])
         // controller:entidades -url:entidades
-        .controller('entidadesController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion) {
-            $scope.initSeccion = function() {
-                getSeccion.seccion($scope,dataResource,'headers',2);
-            };
+        .controller('entidadesController',['$scope', '$http', function ($scope, $http) {
+            $scope.loading = false;
+            $scope.initSeccion = function(){
+                $http.get(urlBlueboxApi+'headers/2')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
+            }
         }])
         // controller:la-redinternacion -url:la-redinternacion
-        .controller('la-red-internacionalController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion',function ($scope, $http, $rootScope, dataResource, getSeccion) {
-            $scope.initSeccion = function() {            
-                getSeccion.seccion($scope,dataResource,'headers',3);
+        .controller('la-red-internacionalController',['$scope', '$http',function ($scope, $http) {
+            $scope.loading = false;
+            $scope.initSeccion = function() {
+                $scope.initSeccion = function(){
+                    $http.get(urlBlueboxApi+'headers/3')
+                    .then(function(res){
+                        $scope.data = res.data;
+                        $scope.loading = true;
+                    });
+                }
+                
                 $http.get(urlBlueboxApi+'contacts')
                 .then(function(res){
                     $scope.contacts = res.data;
+                    $scope.loading = true;
                 });
             };
         }])
     // SECION:EN QUE TRABAJAMOS__________________________________________________________________________________________________________________________
         // controller:educacion-inclusiva -url:educacion-inclusiva
-        .controller('educacion-inclusivaController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('educacion-inclusivaController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',4);
+                $http.get(urlBlueboxApi+'headers/4')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:insercion-laboral -url:insercion-laboral
-        .controller('insercion-laboralController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('insercion-laboralController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',5);
+                $http.get(urlBlueboxApi+'headers/5')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:vida-independiente -url:vida-independiente
-        .controller('vida-independienteController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('vida-independienteController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',6);
+                $http.get(urlBlueboxApi+'headers/6')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:salud -url:salud
-        .controller('saludController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('saludController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',7);
+                $http.get(urlBlueboxApi+'headers/7')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:Incidencia-política-participación-ciudadana -url:Incidencia-política-participación-ciudadana
-        .controller('incidencia-politica-participacion-ciudadanaController',['$scope', '$http', '$rootScope', 'dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('incidencia-politica-participacion-ciudadanaController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',8);
+                $http.get(urlBlueboxApi+'headers/8')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
     // SECION:PROYECTO__________________________________________________________________________________________________________________________
         // controller:proyectos -url:proyectos
-        .controller('proyectosController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion) {
+        .controller('proyectosController',['$scope', '$http', 'base_img', function ($scope, $http, base_img) {
+            $scope.loading = false;
+            $scope.base_img = base_img;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'projects','');
+                $http.get(urlBlueboxApi+'projects')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:proyecto -url:proyectos
-        .controller('proyectoController',['$scope', '$http', '$stateParams','dataResource', 'getSeccion', function ($scope, $http, $stateParams, dataResource, getSeccion) {
+        .controller('proyectoController',['$scope', '$http', '$stateParams', 'base_img', function ($scope, $http, $stateParams, base_img) {
+            $scope.loading = false;
+            $scope.base_img = base_img;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'project', $stateParams.id);
+                $http.get(urlBlueboxApi+'project/'+$stateParams.id)
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
     // SECION:TRANSPARENCIAS__________________________________________________________________________________________________________________________
         // controller:junta-directiva -url:junta-directiva
-        .controller('junta-directivaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('junta-directivaController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',8);
+                $http.get(urlBlueboxApi+'headers/9')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:organigrama -url:organigrama
-        .controller('organigramaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('organigramaController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',10);
+                $http.get(urlBlueboxApi+'headers/10')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:estatutos -url:estatutos
-        .controller('estatutosController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('estatutosController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',11);
+                $http.get(urlBlueboxApi+'headers/11')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:tablas-salariales -url:tablas-salariales
-        .controller('tablas-salarialesController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('tablas-salarialesController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',12);
+                $http.get(urlBlueboxApi+'headers/12')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:misión-visión-valores -url:misión-visión-valores
-        .controller('mision-vision-valoresController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('mision-vision-valoresController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'company','');
+                $http.get(urlBlueboxApi+'company')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:codigos-de-conducta -url:codigos-de-conducta
-        .controller('codigos-de-conductaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('codigos-de-conductaController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',14);
+                $http.get(urlBlueboxApi+'headers/14')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:financiadores -url:financiadores
-        .controller('financiadoresController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('financiadoresController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',15);
+                $http.get(urlBlueboxApi+'headers/15')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:financiación-recibida -url:financiación-recibida
-        .controller('financiacion-recibidaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('financiacion-recibidaController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',16);
+                $http.get(urlBlueboxApi+'headers/16')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:planificacion-estrategica -url:planificacion-estrategica
-        .controller('planificacion-estrategicaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('planificacion-estrategicaController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',17);
+                $http.get(urlBlueboxApi+'headers/17')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:memorias -url:memorias
-        .controller('memoriasController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('memoriasController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',18);
+                $http.get(urlBlueboxApi+'headers/18')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
         // controller:cuentas-anuales-auditorias -url:cuentas-anuales-auditorias
-        .controller('cuentas-anuales-auditoriasController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('cuentas-anuales-auditoriasController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',19);
+                $http.get(urlBlueboxApi+'headers/19')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
     // SECION:DISCAPACIDAD EN REPUBLICA DOMINICANA__________________________________________________________________________________________________________________________
         // controller:discapacidad-republica-dominicana -url:discapacidad-republica-dominicana
-        .controller('discapacidad-republica-dominicanaController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('discapacidad-republica-dominicanaController',['$scope', '$http',  function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'headers',20);
+                $http.get(urlBlueboxApi+'headers/20')
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
     // SECION:PUBLICACIONES__________________________________________________________________________________________________________________________
         // controller:publicaciones -url:publicaciones
-        .controller('publicacionesController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', 'base_img',  function ($scope, $http, $rootScope, dataResource, getSeccion, base_img ) {
+        .controller('publicacionesController',['$scope', '$http',  'base_img',  function ($scope, $http, base_img ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                $scope.loading = false;
                 $scope.base_img = base_img;
                 $http.get(urlBlueboxApi+'publicaciones/2')
                 .then(function(res){
                     $scope.data = res.data;
+                    $scope.loading = true;
                 });
-                $scope.loading = true;
             }
         }])
-        .controller('publicacionController',['$scope', '$http', '$stateParams','dataResource', 'getSeccion', function ($scope, $http, $stateParams, dataResource, getSeccion ) {
+        .controller('publicacionController',['$scope', '$http', '$stateParams', 'base_img', function ($scope, $http, $stateParams, base_img  ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'blog',$stateParams.id);
+                $scope.base_img = base_img;
+                $http.get(urlBlueboxApi+'blog/'+$stateParams.id)
+                .then(function(res){
+                    $scope.data = res.data;
+                    $scope.loading = true;
+                });
             }
         }])
     // SECION:NOTICIAS__________________________________________________________________________________________________________________________
         // controller:noticias -url:noticias
-        .controller('noticiasController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', 'base_img',  function ($scope, $http, $rootScope, dataResource, getSeccion, base_img ) {
+        .controller('noticiasController',['$scope', '$http',  'base_img',  function ($scope, $http, base_img ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                $scope.loading = false;
                 $scope.base_img = base_img;
                 $http.get(urlBlueboxApi+'publicaciones/1')
                 .then(function(res){
                     $scope.data = res.data;
+                    $scope.loading = true;
                 });
-                $scope.loading = true;
             }
         }])
     // SECION:CONTACTANOS__________________________________________________________________________________________________________________________
         // controller:contactanos -url:contactanos
-        .controller('contactanosController',['$scope', '$http', '$rootScope','dataResource', 'getSeccion', function ($scope, $http, $rootScope, dataResource, getSeccion ) {
+        .controller('contactanosController',['$scope', '$http', function ($scope, $http ) {
+            $scope.loading = false;
             $scope.initSeccion = function(){
-                getSeccion.seccion($scope,dataResource, 'contacts','');
+                $http.get(urlBlueboxApi+'contacts')
+                .then(function(res){
+                    $scope.data = res.data;
+                });
             }
             $scope.redes = function(){
                 $http.get(urlBlueboxApi+'variables/Redes')
                 .then(function(res){
                     $scope.redes = res.data;
+                    $scope.loading = true;
                 });
             }
         }])

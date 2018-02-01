@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="container container__main" ng-show="loading">
-			<div class="header" style="background-image: url({{base_img}}{{data.image}});">
+			<div class="header" style="background-image: url({{base_img}}{{data.image}});background-color: #bbb">
 				<div class="container">
 	            	<h1 class="mb-0">{{data.title}}</h1>
 	            	<h2 class="mt-0 mb-0">{{data.subtitle}}</h2>
@@ -30,6 +30,11 @@
 			</div>
 		</div>
 	</div>
-
+	<style>
+		#proyecto .container__main h1,
+		#proyecto .container__main h2{
+			text-shadow: 1px 1px 1px black;
+		}
+	</style>
 </div>
 <!-- section:proyecto-END
