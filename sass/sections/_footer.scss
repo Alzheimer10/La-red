@@ -1,0 +1,85 @@
+$bg-footer : $color-tertiary;
+
+footer{
+	background: $bg-footer;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	& .footer_bottom{
+		padding: .6rem;
+		background: $color-tertiary-hover;
+	}
+
+	& .footer_top {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		& h3 {
+			border-bottom: 1px solid $bg-footer;
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+		& ul {
+			list-style-type: none;
+			margin-left: 0;
+			padding-left: 0;
+			& li a {
+				margin: 0px 8px;
+				padding: 0 0 5px 0;
+				display: block;
+			}
+		}
+	}
+}
+
+
+.social {
+    margin: 0;
+    padding: 0;
+	& ul {
+	    margin: 0;
+	    padding: 0px;
+		& li {
+		    	margin: 5px;
+		    list-style: none outside none;
+		    display: inline-block;
+		    & a{
+		    	padding: 0 !important;
+		    }
+		}
+	}
+
+
+	& i {
+	    width: 40px;
+	    height: 40px;
+	    color: #FFF;
+	    background-color: #909AA0;
+	    font-size: 22px;
+	    text-align:center;
+	    padding-top: 12px;
+	    border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -o-border-radius: 50%;
+	    @include transition(all ease 0.3s);
+		i:hover {
+		    color: #FFF;
+		    text-decoration: none;
+	    	@include transition(all ease 0.3s);
+		}
+	}
+
+	& .fa-twitter:hover {
+	    background: #00ABE3;
+	}
+	& .fa-instagram:hover {
+	    background: #375989;
+	}
+	& .fa-youtube:hover {
+	    background: #FF1F25;
+	}
+	& .fa-facebook:hover {
+	    background: #375989;
+	}
+}

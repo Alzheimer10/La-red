@@ -1,0 +1,24 @@
+<!-- section:planificacion-estrategica -->
+<div ng-controller="planificacion-estrategicaController" class="o-hidden" id="planificacion-estrategica">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+            	<h1 class="color-font-5">Planificación estratégica</h1>
+				<div ng-bind-html="data.content"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section:planificacion-estrategica-END -->

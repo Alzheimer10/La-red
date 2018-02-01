@@ -1,0 +1,35 @@
+<!-- section:proyecto -->
+<div ng-controller="proyectoController" class="o-hidden" id="proyecto">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="header" style="background-image: url({{base_img}}{{data.image}});">
+				<div class="container">
+	            	<h1 class="mb-0">{{data.title}}</h1>
+	            	<h2 class="mt-0 mb-0">{{data.subtitle}}</h2>
+					<div class="info_data">
+	            		<span class="mt-0">{{data.address}}</span>
+					</div>
+	            </div>
+			</div>
+			<div class="container">			
+				<div class="container-fluid">
+					<div ng-bind-html="data.content"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- section:proyecto-END

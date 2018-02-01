@@ -1,0 +1,24 @@
+<!-- section:Incidencia-política-participación-ciudadana -->
+<div id="incidencia-politica-participacion-ciudadana" ng-controller="incidencia-politica-participacion-ciudadanaController" class="o-hidden">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+	    <div class="container container__main" ng-show="loading">
+	        <div class="container-fluid">
+	            <h1 class="color-font-5">Incidencia política y participación ciudadana</h1>
+				<div ng-bind-html="data.content"></div>
+	        </div>
+	    </div>
+    </div>
+</div>
+<!-- section:Incidencia-política-participación-ciudadana-END -->

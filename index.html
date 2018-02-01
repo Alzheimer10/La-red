@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="appMain">
+<head>
+	<title>La Red</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!-- ETIQUETAS META:SEO -->
+	<meta name="description" content=""/>
+	<meta name="author" content="oCeandg | carlosanselmi2@gmail.com">
+	<meta name="keywords" content="La RED en RD,organizaciones, personas ,discapacidad, física, ASODIFIMO, CIMUDIS, República, Dominicana"/>
+	<meta name="robots" content="index,follow" />
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="bower_components/swiper/dist/css/swiper.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- IMPORTANTE! MODIFICAR EL $urlBlueBox en la direccion donde se encuentra. Esto es para las peticiones AJAX -->
+	<!-- <script> urlBluebox = "http://bluebox.anselmi.com.ve"; </script> -->
+	<script> urlBluebox = "http://ocean-bluebox.local/"; </script>
+	<!-- IMPORTANTE! ES PREFERIBLE MODIFICAR EN <BASE> EN LA DIRECCIÓN DONDE SE SUBIRA EL SITIO WEB( LA RED ) -->
+	<base href="">
+	<script>  document.getElementsByTagName("base")[0].setAttribute('href',window.location.href) </script>
+</head>
+<body>
+	<!-- header -->
+	<header>
+	  <nav class="navbar" style="z-index: 200">
+	    <div class="container-navbar">
+	    	<div class="navbar-header">
+	    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	    			<span class="sr-only">Toggle navigation</span>
+	    			<span class="icon-bar"></span>
+	    			<span class="icon-bar"></span>
+	    			<span class="icon-bar"></span>
+	    		</button>
+	    		<a class="navbar-brand"  ui-sref="/"><img src="img/logotipo.png"></a>
+	    		<a class="navbar-brand navbar-brand-red"  ui-sref="/"><span>La</span><span>RED</span></a>
+	    		<!-- <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a> -->
+	    	</div>
+
+	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    		<ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown">
+			          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">¿Quiénes somos?</a>
+			          <ul class="dropdown-menu">
+				            <li><a ui-sref="la-red" >La RED en RD </a></li>
+				            <li><a ui-sref="entidades" >Entidades que forman La RED en RD</a></li>
+				            <li><a ui-sref="la-red-internacional" >La RED a nivel internacional</a></li>
+			          </ul>
+			        </li>
+			        <li class="dropdown">
+			          	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿En qué trabajamos?</a>
+			        	<ul class="dropdown-menu">
+							<li><a ui-sref="educacion-inclusiva">Educación Inclusiva</a></li>
+							<li><a ui-sref="insercion-laboral">Inserción Laboral</a></li>
+							<li><a ui-sref="vida-independiente">Vida independiente</a></li>
+							<li><a ui-sref="salud">Salud</a></li>
+							<li><a ui-sref="incidencia-politica-participacion-ciudadana">Incidencia política y participación ciudadana</a></li>
+			        	</ul>
+			        </li>
+	    			<li><a ui-sref="proyectos" class="dropdown-collapse">Proyectos</a></li>
+			        <li class="dropdown">
+			          	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transparencia</a>
+			          	<ul class="dropdown-menu">
+							<li><a ui-sref="junta-directiva">Junta directiva</a></li>
+							<li><a ui-sref="organigrama">Organigrama</a></li>
+							<li><a ui-sref="estatutos">Estatutos</a></li>
+							<li><a ui-sref="tablas-salariales">Tablas salariales</a></li>
+							<li><a ui-sref="mision-vision-valores">Misión, visión y valores</a></li>
+							<li><a ui-sref="codigos-de-conducta">Códigos de conducta</a></li>
+							<li><a ui-sref="financiadores">Financiadores</a></li>
+							<li><a ui-sref="financiacion-recibida">Financiación recibida</a></li>
+							<li><a ui-sref="planificacion-estrategica">Planificación Estratégica</a></li>
+							<li><a ui-sref="memorias">Memorias</a></li>
+							<li><a ui-sref="cuentas-anuales-auditorias">Cuentas anuales y auditorías</a></li>
+			          	</ul>
+			        </li>
+	    			<li><a ui-sref="discapacidad-republica-dominicana" class="dropdown-collapse">Discapacidad en República Dominicana</a></li>
+	    			<li><a ui-sref="publicaciones" class="dropdown-collapse">Publicaciones</a></li>
+	    			<li><a ui-sref="noticias" class="dropdown-collapse">Noticias</a></li>
+	    			<li><a ui-sref="contactanos" class="dropdown-collapse">Contáctanos</a></li>
+	    		</ul>
+	    	</div><!-- /.navbar-collapse -->
+	    </div><!-- /.container-fluid -->
+	  </nav>
+	</header>
+	<!-- header-END -->
+
+	<!-- UI-VIEW -->
+	    <div ui-view></div>
+	<!-- UI-VIEW-END -->
+
+	<!-- footer -->
+	<footer>
+	  <!-- footer:bootom -->
+	    <div class="footer_bottom text-center">
+	      La Red de RD © 2017 Todos los derechos reservados.
+	    </div>
+	  <!-- footer:bootom-end -->
+	</footer>
+	<!-- footer-EMD -->
+
+    <!-- jquery -->
+	<script src="bower_components/jquery/dist/jquery.min.js" ></script>
+    <!-- bootstrap -->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <!-- swiper -->
+ 	<script src="bower_components/swiper/dist/js/swiper.min.js" ></script>
+    <!-- virus -->
+	<script src="bower_components/vivus/dist/vivus.min.js" ></script>
+    <!-- angularjs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script> 
+    <!-- angular-ui-router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <!-- googleapis -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_qtjgNmDECrbrMwelElSL3rVzp5TtIJg" async defer></script>
+    <!-- angular-animate -->
+ 	<script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- angular-resources -->
+	<script src="https://www.uno-de-piera.com/wp-content/uploads/2013/07/angular_resource.js"></script>
+    <!-- angular-sanitize -->
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <!-- scrollreveal -->
+	<script src="bower_components/scrollreveal/dist/scrollreveal.min.js"></script> 
+
+	<!-- JS:APP -->
+	<script src="js/main.js" ></script>
+	<script src="app/app.js" ></script>
+	<script src="app/controllers/la-redController.js" ></script>
+</body>
+</html>

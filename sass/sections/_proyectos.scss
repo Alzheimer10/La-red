@@ -1,0 +1,25 @@
+nav.navbar{ background: white }
+#proyecto{
+	.container__main{
+		/*padding-top: 68px;*/
+		@media screen and (max-width: 767px){
+			/*padding-top: 0;*/
+		}
+	}
+
+	.container__main .info_data span{
+		background: rgba(#333,.6);
+		color: white;
+		border-radius: 5px;
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.container__main .header{
+		background-size: cover;
+		padding: 50px;
+		color: white;
+		position: relative;
+		margin-bottom: 20px;
+	}
+}

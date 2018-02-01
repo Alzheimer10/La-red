@@ -1,0 +1,334 @@
+<!-- partial-home.html -->
+
+<div ng-controller="homeController" class="o-hidden" id="home">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+	<!-- Slider main container -->
+		<div class="swiper-container" id="swiper_home" ng-show="loading">
+		    <!-- Additional required wrapper -->
+		    <div class="swiper-wrapper"  ng-init="sliders()">
+		        <!-- Slides -->
+		        <div class="swiper-slide" style="background-image: url({{base_img}}{{slider.image}});" ng-repeat="slider in sliders" >
+				    <div class="navbar_content_text center-v">
+				      <h1 ng-if="slider.title!=NULL">{{ slider.title }}</h1><br>
+				      <h1 ng-if="slider.subtitle!=NULL">{{ slider.subtitle }} </h1>
+				    </div>
+		        </div>
+		    </div>
+
+		    <div ng-if="sliders.length > 1" ng-init="swiper()">	    	
+			    <!-- If we need navigation buttons -->
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
+			    <!-- If we need pagination -->
+			    <div class="swiper-pagination"></div> 
+		    </div>
+		</div>
+	<!-- Slider main container-END -->
+
+	<!-- section:la_red_en_rd -->
+		<section class="container section-p-t-vertical o-hidden" id="la_red_en_rd" ng-init="home_seccion_1()">
+		    <div class="row flex-parent">
+		        <div class="col-xs-5 flex-child-xs sr_left content-image">
+		        	<img src="{{base_img}}{{brands[2].image}}" class="image-absolute">
+		        </div>
+		      	<div class="col-xs-7 flex-child content-text sr_right">
+		      		<div ng-bind-html="home_seccion_1.content"></div>
+					<a ui-sref="about" class="btn-lg btn_primary dit">SABER MÁS</a>
+		      	</div>
+		    </div>
+		</section>
+	<!-- section:la_red_en_rd-END -->
+
+	<!-- section:entidades-END -->
+		<section class="container-fluid container-p section-p-vertical o-hidden" style="background: #F4F4F3;">
+		    <div class="row">
+		    	<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			    	<div class="col-xs-12 text-center sr_bottom">
+			    		<h4 class="mb-0">Entidades que forman</h4>
+			    		<h1 class="mt-0 color-font-5">La RED en RD</h1>
+			    		<p>La RED está formada por dos entidades de personas con discapacidad en República Dominicana</p>
+			    	</div>
+					
+					<div ng-init="services()">
+
+				    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 sr_left">
+						    <div class="card card_1">
+						    	<div class="card_img">
+						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{services[0].image}}">
+						    	</div>
+						      <div class="card-block">
+						        <h2 class="card-title color-font-5">{{services[0].title }}</h2>
+						        <p class="card-text">{{services[0].description}}</p>
+						        <button class="btn btn-lg btn_primary"><a ui-sref="entidades">ver más</a></button>
+						      </div>
+						    </div>
+				    	</div>
+
+				    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 sr_right">
+						    <div class="card card_1">
+						    	<div class="card_img">
+						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{services[1].image}}">
+						    	</div>
+						      <div class="card-block">
+						        <h2 class="card-title color-font-5">{{services[1].title }}</h2>
+						        <p class="card-text">{{services[1].description}}</p>
+						        <button class="btn btn-lg btn_primary"><a ui-sref="entidades">ver más</a></button>
+						      </div>
+						    </div>
+				    	</div>
+			    	</div>
+		    	</div>
+		    </div>
+		</section>
+	<!-- section:entidades-END -->
+
+	<!-- section:swiper -->
+<!-- 	  	<div class="swiper-container o-hidden" id="swiper">
+			section-swiper-wrapper
+			<div class="swiper-wrapper">
+	      <div class="swiper-slide">
+	      	<div class="container">
+	      		<h1>Slide 1</h1>
+	      		<p style="display: block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque a distinctio sint eum, porro molestiae blanditiis nesciunt sed aliquid labore ullam, maiores consequatur dolorem nostrum. Ratione tempora, fugiat repellat vel!</p>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="container">
+	      		<h1>Slide 2</h1>
+	      		<p style="display: block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima consequuntur veniam adipisci perferendis quod consectetur, ad quidem et doloribus saepe. Impedit esse repellendus vitae, placeat rerum laboriosam! Aliquam quas, itaque.</p>
+	      	</div>
+	      </div>
+	      <div class="swiper-slide">
+	      	<div class="container">
+	      		<h1>Slide 3</h1>
+	      		<p style="display: block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eum ipsam illum veniam perferendis cupiditate optio commodi, maiores unde ex amet quos repellendus consectetur? Sint minima eum, hic omnis nihil.</p>
+	      	</div>
+	      </div>
+			</div>
+			Add Pagination
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div> -->
+	<!-- section:swiper-EMD -->
+
+	<!-- section:galeria -->
+		<section class="container section-p-vertical o-hidden">
+			<div class="row sr_bottom">
+				<div class="col-xs-6 col-sm-3">
+					<div class="item item-type-line">
+						<a class="item-hover" ui-sref="proyectos">
+							<div class="item-info">
+								<div class="headline">VER NUESTROS</div>
+								<div class="line"></div>
+								<div class="date">proyectos</div>
+							</div>
+							<div class="mask"></div>
+						</a>
+						<div class="item-img"><img src="{{base_img}}{{brands[3].image}}" width="100%" /></div>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-sm-3">
+					<div class="item item-type-line">
+						<a class="item-hover" ui-sref="proyectos">
+							<div class="item-info">
+								<div class="headline">VER NUESTROS</div>
+								<div class="line"></div>
+								<div class="date">proyectos</div>
+							</div>
+							<div class="mask"></div>
+						</a>
+						<div class="item-img"><img src="{{base_img}}{{brands[4].image}}" width="100%" /></div>
+					</div>	
+				</div>
+
+				<div class="col-xs-6 col-sm-3">
+					<div class="item item-type-line">
+						<a class="item-hover" ui-sref="proyectos">
+							<div class="item-info">
+								<div class="headline">VER NUESTROS</div>
+								<div class="line"></div>
+								<div class="date">proyectos</div>
+							</div>
+							<div class="mask"></div>
+						</a>
+						<div class="item-img"><img src="{{base_img}}{{brands[5].image}}" width="100%" /></div>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-sm-3">
+					<div class="item item-type-line">
+						<a class="item-hover" ui-sref="proyectos">
+							<div class="item-info">
+								<div class="headline">VER NUESTROS</div>
+								<div class="line"></div>
+								<div class="date">proyectos</div>
+							</div>
+							<div class="mask"></div>
+						</a>
+						<div class="item-img"><img src="{{base_img}}{{brands[6].image}}" width="100%" /></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<!-- section:galeria-END -->
+
+	<!-- section:parallax -->
+		<div id="parallax-window" class="parallax-window" style="background-image: url({{base_img}}{{brands[0].image}})">
+			<div class="content-text text-center flex-child" ng-init="parallax()">
+				<div class="sr_bottom" ng-bind-html="parallax.content"></div>
+			</div>
+		</div>
+	<!-- section:parallax-END -->
+
+	<!-- section:red-internacional -->
+		<section class="container section-p-vertical">
+			<div class="row valign">
+				<div class="col-xs-6 col-sm-7 sr_left">
+					<h1 class="color-font-5">La RED a nivel internacional</h1>
+					<p>La RED se creó en el año 2001 y está compuesta por 22 entidades de 13 países de América Latina, el Caribe y España.</p>
+					<p>Si quieres saber más de La RED a nivel internacional puedes consultar su página web: <a href="http://www.larediberoamericana.com/" target="_blank" class="color-font-5">www.larediberoamericana.com</a></p>
+				</div><!--
+				--><div class="col-xs-6 col-sm-5">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"  class="line-drawing svg-animation" id="svg_1">
+							<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+								M458.846,261.769c1.297,9.378,1.954,18.926,1.954,28.365c0,112.111-90.539,203.46-202.342,204.791
+								c-30.345-19.388-58.786-43.127-46.114-72.695c22.75-53.094,1.579-72.892-7.467-81.348l-1.698-1.614
+								c-2.586-2.577-5.495-4.335-8.073-5.879c-6.246-3.746-7.927-4.752-4.574-14.814c2.219-6.682,5.171-9.796,8.576-13.406
+								c7.893-8.346,13.926-16.648,13.926-40.781c0-14.046-7.125-25.25-19.55-30.737c-14.089-6.229-32.905-4.028-42.854,5
+								c-6.212,5.649-8.303,13.338-5.726,21.077c6.084,18.219-7.817,44.553-33.792,64.034c-6.878,5.163-8.934,2.798-10.155,1.382
+								c-7.62-8.781-7.031-33.758-0.777-40.005c4.19-4.19,5.436-9.539,3.328-14.31c-6.912-15.684-36.581-27.874-45.319-27.455
+								c-0.375,0.016-0.674,0.195-1.033,0.265c-0.512,0.086-0.99,0.188-1.468,0.367c-0.597,0.213-1.126,0.495-1.647,0.836
+								c-0.393,0.248-0.759,0.503-1.101,0.811c-0.461,0.418-0.828,0.862-1.186,1.357c-0.299,0.401-0.555,0.811-0.776,1.27
+								c-0.256,0.529-0.418,1.075-0.563,1.665c-0.077,0.316-0.265,0.58-0.307,0.912c-1.084,8.823-1.545,16.564-1.545,25.873
+								c0,102.316,69.282,190.882,168.474,215.39"/>
+							
+							<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+								M358.366,294.571c-2.465,0.709-5.838,1.673-6.734,1.742c-11.792,0-19.267,9.13-24.72,15.794
+								c-2.082,2.551-5.803,7.33-8.244,7.177c-3.857-1.93-7.909-2.901-12.049-2.901c-10.061,0-18.773,5.982-20.718,14.242
+								c-1.375,5.802,0.647,13.747,10.419,18.636c13.858,6.93,28.185,14.089,34.56,20.463c4.386,4.386,11.972,6.904,20.821,6.904
+								c13.441,0,31.309-6.527,37.444-24.943c2.424-7.253,8.218-12.8,13.824-18.168c6.502-6.228,12.656-12.1,12.74-20.548
+								c0.06-4.984-2.15-9.744-6.554-14.157c-5.999-6-14.165-9.038-24.286-9.038C375.16,289.775,365.45,292.548,358.366,294.571z"/>
+							
+							<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+								M247.637,74.165c17.135-0.7,34.543,0.759,51.285,4.335c-0.307,12.279,4.992,32.041,8.406,37.451
+								c0.938,1.502,2.236,3.55,2.389,3.831c0,30.609-6.255,34.553-6.188,34.57c-13.832,0-36.53,13.387-45.064,29.319
+								c-5.239,9.771-4.813,20.113,1.186,29.124c4.113,6.17,7.654,13.03,11.085,19.669c7.252,14.046,15.309,29.628,27.93,29.628
+								c2.679,0,5.564-0.701,8.686-2.261c9.95-4.975,17.085-19.123,23.98-32.794c3.038-6.025,7.501-14.865,10.146-17.673
+								c8.661,1.178,12.893,9.011,18.619,21.419c4.216,9.131,8.577,18.56,17.143,22.844c14.421,7.211,47.41,0.69,73.616-10.438
+								c0.35-0.145,0.589-0.435,0.913-0.623c0.503-0.299,0.981-0.58,1.408-0.964c0.41-0.375,0.725-0.785,1.05-1.22
+								c0.333-0.435,0.64-0.862,0.879-1.348c0.247-0.495,0.384-1.007,0.521-1.536c0.145-0.529,0.273-1.033,0.315-1.579
+								c0.034-0.572-0.033-1.118-0.119-1.698c-0.042-0.375,0.034-0.734-0.067-1.109c-17.911-66.219-66.56-121.301-130.15-147.337"/>
+							
+							<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+								M258.482,467.302c8.091,0,15.65-2.927,20.753-8.021c5.666-5.666,7.05-13.996,3.892-23.441
+								c-2.126-6.383-6.332-13.133-11.255-18.057c-2.441-2.432-5.751-3.772-9.344-3.772c-10.65,0-23.142,12.254-27.699,23.253
+								c-3.558,8.594-2.5,16.607,2.91,22.017C242.833,464.375,250.394,467.302,258.482,467.302z"/>
+							
+							<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+								M96.986,143.012c-19.422,19.021-36.209,51.014-42.984,81.401"/>
+							
+							<g>
+								<animateTransform attributeName="transform" type="translate" attributeName="x" values="-10; 0; -10" keyTimes="0; 0.50; 1" begin="1s" dur="4s" calcMode="linear" fill="freeze" repeatCount="indefinite"/>
+
+								<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+									M150.933,155.543c1.401,1.704,3.517,2.697,5.759,2.697c2.242,0,4.358-0.993,5.759-2.697l29.281-35.714
+									c8.097-9.019,23.949-35.267,23.949-55.081c0-31.722-26.464-57.532-58.99-57.532s-58.99,25.811-58.99,57.533
+									c0,23.164,21.169,51.492,23.736,54.836L150.933,155.543z"/>
+								
+								<path fill="none" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+									M156.692,79.132c8.133,0,14.748-6.451,14.748-14.384c0-7.932-6.614-14.384-14.748-14.384c-8.133,0-14.748,6.451-14.748,14.384
+									C141.945,72.681,148.56,79.132,156.692,79.132z"/>
+							</g>
+					</svg>
+				</div>
+			</div>
+		</section>
+	<!-- section:red-internacional-END -->
+
+	<!-- section-contact-home  -->
+		<section class="container-fluid container-p o-hidden" id="section-contact-home" >
+			<div class="row flex-parent-sm">
+				<div class="col-xs-12 col-sm-6 info-contact flex-child" style="background-image: url({{base_img}}{{brands[1].image}})">
+		            <div class="col-xs-12 content-contact sr_left">
+<!--
+		                <div class="col-xs-6 col-sm-6 col-lg-4">
+
+ 		                    <h3> SOBRE NOSOTROS </h3>
+<ul>
+					            <li><a ui-sref="la-red" >La RED en RD </a></li>
+					            <li><a ui-sref="entidades" >Entidades de La RED</a></li>
+					            <li><a ui-sref="la-red-internacional" >La RED a nivel internacional</a></li>
+</ul> 
+		                </div>
+-->
+
+		                <div class="col-xs-12 col-sm-offset-0 col-sm-12 col-lg-6 text-center" ng-init="redes()">
+		                	<h3 ng-if="redes.length > 0">SIGUENOS..</h3>
+			                <div class="social">
+					            <ul>
+					                <li ng-repeat="rede in redes"><a href="{{rede.value}}" target="_blank"><i class="fa fa-lg fa-{{rede.name}}"></i></a></li>
+					            </ul>
+					        </div>
+		                	<img src="img/image001.png" alt="image001.png" width="100%">
+		                </div>
+
+		                <div class="hidden-xs col-sm-12 col-lg-6 text-center">
+		                	<h3> UBICANOS EN..</h3>
+		                	<ul>
+		                	</ul>
+		                    <ul class="list skill-list">
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(0)"> República Dominicana </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(1)"> El Salvador </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(2)"> Argentina </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(3)"> España</a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(4)"> Perú </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(5)"> Ecuador </a> </li>
+		                    </ul>
+		                </div>
+		            </div>
+				</div>
+				<div class="col-xs-12 col-sm-6 container-map">
+				    <!-- section:map -->
+		                    <ul class="list skill-list visible-xs" style="position: absolute; left: 0; right: 0; margin: auto; bottom: 5px; z-index: 2">
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(0)"> República Dominicana </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(1)"> El Salvador </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(2)"> Argentina </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(3)"> España</a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(4)"> Perú </a> </li>
+		                	    <li class="skill"> <a href="javascript:void(0)" onclick="moveToLocation(5)"> Ecuador </a> </li>
+		                    </ul>
+				    	<section id="map">
+				    	</section>
+				    <!-- section:map-EMD -->
+				</div>
+			</div>
+		</section>
+	<!-- section-contact-home-END  -->
+
+	<script>
+		$(document).ready(function(){
+			initMap('map');
+			vivus('svg_1');
+			// var scene = document.getElementById('parallax-window');
+			// var parallaxInstance = new Parallax(scene);
+		});
+		window.sr = ScrollReveal();
+		sr.reveal('.sr_right',  { mobile: false, reset: false, distance: '100px', easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)', origin: 'right'  , opacity: 0, duration: 1000, delay: 0 });
+		sr.reveal('.sr_left',   { mobile: false, reset: false, distance: '100px', easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)', origin: 'left'   , opacity: 0, duration: 1000, delay: 0 });
+		sr.reveal('.sr_top',    { mobile: false, reset: false, distance: '100px', easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)', origin: 'top'    , opacity: 0, duration: 1000, delay: 0 });
+		sr.reveal('.sr_bottom', { mobile: false, reset: false, distance: '100px', easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)', origin: 'bottom' , opacity: 0, duration: 1000, delay: 0 });
+
+	</script>
+</div>

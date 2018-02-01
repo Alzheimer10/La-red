@@ -1,0 +1,24 @@
+<!-- section:cuentas-anuales-auditorias -->
+<div ng-controller="cuentas-anuales-auditoriasController" class="o-hidden" id="cuentas-anuales-auditorias">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+            	<h1 class="color-font-5">Cuentas anuales auditorias</h1>
+				<div ng-bind-html="data.content"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section:cuentas-anuales-auditorias-END -->

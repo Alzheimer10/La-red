@@ -1,0 +1,49 @@
+<!-- section:proyectos -->
+<div ng-controller="proyectosController" class="o-hidden" id="proyectos">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+            	<h1 class="color-font-5">Proyectos</h1>
+				<div id="columns" data-columns  ng-repeat="item in data">
+					<article class="card_blog">
+						<div class="card__wrapper">
+							<a ui-sref="proyecto({id: item.id})">
+							    <figure class="card__feature">
+							      <img src="{{base_img}}{{item.image}}" class="card__img" alt="waves" width="275" height="240">
+							    </figure>
+
+							    <div class="card__box">
+							      <header class="card__item card__header">
+							        <h2 class="card__item card__item--small card__title mb-0">{{item.title}}</h2>
+							        <h3 class="mt-0">{{item.subtitle}}</h3>
+							      </header>
+
+							      <section class="card__item card__body">
+							        <p>{{item.image_description}}</p>
+							      </section>
+
+							    </div>
+							</a>
+						</div>
+					</article>
+				</div>
+				<!-- {{data[0]}} -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- salvattore -->
+<script src="js/salvattore/salvattore.min.js"></script>
+<!-- section:proyectos-END

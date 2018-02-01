@@ -1,0 +1,24 @@
+<!-- section:tablas-salariales -->
+<div ng-controller="tablas-salarialesController" class="o-hidden" id="tablas-salariales">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+            	<h1 class="color-font-5">Tablas salariales</h1>
+				<div ng-bind-html="data.content"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section:tablas-salariales-END -->

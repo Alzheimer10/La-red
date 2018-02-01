@@ -1,0 +1,27 @@
+/*!
+ * ANSELMI404 (http://anselmi404.com.ve)
+ * Copyright 2017-2018.
+ * Licensed under MIT (https://github.com/Alzheimer10/base-template/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "core/mix";
+@import "core/variables";
+@import "core/initial";
+@import "core/helper";
+@import "core/shadow";
+
+//componentes
+@import "components/navbar";
+@import "components/loading";
+@import "components/swiper-slide";
+@import "components/btn";
+@import "components/cards";
+@import "components/svg";
+
+// Sections
+@import "sections/sections-home";
+@import "sections/proyectos";
+@import "sections/publicaciones";
+@import "sections/contactanos";
+@import "sections/footer";

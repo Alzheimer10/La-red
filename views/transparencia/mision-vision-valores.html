@@ -1,0 +1,26 @@
+<!-- section:misión-visión-valores -->
+<div ng-controller="mision-vision-valoresController" class="o-hidden" id="mision-vision-valores">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+		
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+				<div ng-repeat="item in data">
+					<h2 class="color-font-5" style="border-bottom: 2px solid red">{{item.title}}</h2>
+					<div ng-bind-html="item.description"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section:misión-visión-valores-END -->

@@ -1,0 +1,29 @@
+<!-- section:publicacion -->
+<div ng-controller="publicacionController" class="o-hidden" id="publicacion">
+	<div ng-init="initSeccion()">
+		<div class="container-loading" ng-hide="loading">
+			<div class="container-balls">
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+			</div>
+		</div>
+
+		<div class="container container__main" ng-show="loading">
+			<div class="container-fluid">
+            	<h1 class="color-font-5 mb-0">{{data.title}}</h1>
+            	<h1 class="mt-0">{{data.subtitle}}</h1>
+            	<p class="mt-0 mb-0">{{data.created_at}}</p>
+				<div class="info_data">
+					<span>{{data.section.name}}</span> <span>{{data.category.name}}</span> <span>{{data.subcategory.name}}</span>
+				</div>
+				<div ng-bind-html="data.content"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section:publicacion-END<
