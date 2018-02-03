@@ -1,19 +1,6 @@
 <!-- section:proyectos -->
-<div ng-controller="proyectosController" class="o-hidden" id="proyectos">
-	<div ng-init="initSeccion()">
-		<div class="container-loading" ng-hide="loading">
-			<div class="container-balls">
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-			</div>
-		</div>
-
-		<div class="container container__main" ng-show="loading">
+<div class="o-hidden" id="proyectos">
+		<div class="container container__main" >
 			<div class="container-fluid">
             	<h1 class="color-font-5">Proyectos</h1>
 				<div id="columns" data-columns  ng-repeat="item in data">
@@ -42,7 +29,6 @@
 				<!-- {{data[0]}} -->
 			</div>
 		</div>
-	</div>
 </div>
 <!-- salvattore -->
 <script src="js/salvattore/salvattore.min.js"></script>

@@ -69,7 +69,7 @@
         color: #fff;
         padding: .3em;
         display: inline-block;
-        border-radius: 4px;
+        @include border-radius(4px);
         margin: .12em 0;
     }
     & .skill a{

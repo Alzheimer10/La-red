@@ -36,6 +36,7 @@ $bg-card-1: white;
 		top: -125px;
 		right: 0;
 		left: 0;
+		@include border-radius(50%);
 	}
 }
 

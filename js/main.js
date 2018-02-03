@@ -314,7 +314,5 @@ $(document).ready(function(){
 		  hideAllInfoWindows(map);
 		  markers[i].infowindow.open(map, markers[i]);
 		}
-	};
-	
-
+	};	
 });

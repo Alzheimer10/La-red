@@ -1,23 +1,11 @@
 <!-- partial-home.html -->
-
 <div ng-controller="homeController" class="o-hidden" id="home">
-		<div class="container-loading" ng-hide="loading" style="background:white">
-			<div class="container-balls">
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-				<div class="ball"></div>
-			</div>
-		</div>
 	<!-- Slider main container -->
-		<div class="swiper-container" id="swiper_home" ng-show="loading">
+		<div class="swiper-container" id="swiper_home" >
 		    <!-- Additional required wrapper -->
-		    <div class="swiper-wrapper"  ng-init="sliders()">
+		    <div class="swiper-wrapper">
 		        <!-- Slides -->
-		        <div class="swiper-slide" style="background-image: url({{base_img}}{{slider.image}});" ng-repeat="slider in sliders" >
+		        <div class="swiper-slide" style="background-image: url({{base_img}}{{slider.image}});" ng-repeat="slider in data['slider']" >
 				    <div class="navbar_content_text center-v">
 				      <h1 ng-if="slider.title!=NULL">{{ slider.title }}</h1><br>
 				      <h1 ng-if="slider.subtitle!=NULL">{{ slider.subtitle }} </h1>
@@ -36,13 +24,13 @@
 	<!-- Slider main container-END -->
 
 	<!-- section:la_red_en_rd -->
-		<section class="container section-p-t-vertical o-hidden" id="la_red_en_rd" ng-init="home_seccion_1()">
+		<section class="container section-p-t-vertical o-hidden" id="la_red_en_rd">
 		    <div class="row flex-parent">
 		        <div class="col-xs-5 flex-child-xs sr_left content-image">
-		        	<img src="{{base_img}}{{brands[2].image}}" class="image-absolute">
+		        	<img src="{{base_img}}{{data['brands'][2].image}}" class="image-absolute">
 		        </div>
 		      	<div class="col-xs-7 flex-child content-text sr_right">
-		      		<div ng-bind-html="home_seccion_1.content"></div>
+		      		<div ng-bind-html="data['home_seccion_1'].content"></div>
 					<a ui-sref="la-red" class="btn-lg btn_primary dit">SABER MÁS</a>
 		      	</div>
 		    </div>
@@ -59,16 +47,16 @@
 			    		<p>La RED está formada por dos entidades de personas con discapacidad en República Dominicana</p>
 			    	</div>
 					
-					<div ng-init="services()">
+					<div>
 
 				    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 sr_left">
 						    <div class="card card_1">
 						    	<div class="card_img">
-						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{services[0].image}}">
+						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{data['services'][0].image}}">
 						    	</div>
 						      <div class="card-block">
-						        <h2 class="card-title color-font-5">{{services[0].title }}</h2>
-						        <p class="card-text">{{services[0].description}}</p>
+						        <h2 class="card-title color-font-5">{{data['services'][0].title }}</h2>
+						        <p class="card-text">{{data['services'][0].description}}</p>
 						        <button class="btn btn-lg btn_primary"><a ui-sref="entidades">ver más</a></button>
 						      </div>
 						    </div>
@@ -77,11 +65,11 @@
 				    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 sr_right">
 						    <div class="card card_1">
 						    	<div class="card_img">
-						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{services[1].image}}">
+						      		<img class="card-img-top img-circle rounded-circle" src="{{base_img}}{{data['services'][1].image}}">
 						    	</div>
 						      <div class="card-block">
-						        <h2 class="card-title color-font-5">{{services[1].title }}</h2>
-						        <p class="card-text">{{services[1].description}}</p>
+						        <h2 class="card-title color-font-5">{{data['services'][1].title }}</h2>
+						        <p class="card-text">{{data['services'][1].description}}</p>
 						        <button class="btn btn-lg btn_primary"><a ui-sref="entidades">ver más</a></button>
 						      </div>
 						    </div>
@@ -135,7 +123,7 @@
 							</div>
 							<div class="mask"></div>
 						</a>
-						<div class="item-img"><img src="{{base_img}}{{brands[3].image}}" width="100%" /></div>
+						<div class="item-img"><img src="{{base_img}}{{data['brands'][3].image}}" width="100%" /></div>
 					</div>
 				</div>
 
@@ -149,7 +137,7 @@
 							</div>
 							<div class="mask"></div>
 						</a>
-						<div class="item-img"><img src="{{base_img}}{{brands[4].image}}" width="100%" /></div>
+						<div class="item-img"><img src="{{base_img}}{{data['brands'][4].image}}" width="100%" /></div>
 					</div>	
 				</div>
 
@@ -163,7 +151,7 @@
 							</div>
 							<div class="mask"></div>
 						</a>
-						<div class="item-img"><img src="{{base_img}}{{brands[5].image}}" width="100%" /></div>
+						<div class="item-img"><img src="{{base_img}}{{data['brands'][5].image}}" width="100%" /></div>
 					</div>
 				</div>
 
@@ -177,7 +165,7 @@
 							</div>
 							<div class="mask"></div>
 						</a>
-						<div class="item-img"><img src="{{base_img}}{{brands[6].image}}" width="100%" /></div>
+						<div class="item-img"><img src="{{base_img}}{{data['brands'][6].image}}" width="100%" /></div>
 					</div>
 				</div>
 			</div>
@@ -185,9 +173,9 @@
 	<!-- section:galeria-END -->
 
 	<!-- section:parallax -->
-		<div id="parallax-window" class="parallax-window" style="background-image: url({{base_img}}{{brands[0].image}})">
-			<div class="content-text text-center flex-child" ng-init="parallax()">
-				<div class="sr_bottom" ng-bind-html="parallax.content"></div>
+		<div id="parallax-window" class="parallax-window" style="background-image: url({{base_img}}{{data['brands'][0].image}})">
+			<div class="content-text text-center flex-child">
+				<div class="sr_bottom" ng-bind-html="data['parallax'].content"></div>
 			</div>
 		</div>
 	<!-- section:parallax-END -->
@@ -195,8 +183,8 @@
 	<!-- section:red-internacional -->
 		<section class="container section-p-vertical">
 			<div class="row valign">
-				<div class="col-xs-6 col-sm-7 sr_left" ng-init="home_seccion_internacional()">
-					<div class="sr_bottom" ng-bind-html="home_seccion_internacional.content"></div>
+				<div class="col-xs-6 col-sm-7 sr_left">
+					<div class="sr_bottom" ng-bind-html="data['home_seccion_internacional'].content"></div>
 				</div><!--
 				--><div class="col-xs-6 col-sm-5">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"  class="line-drawing svg-animation" id="svg_1">
@@ -258,7 +246,7 @@
 	<!-- section-contact-home  -->
 		<section class="container-fluid container-p o-hidden" id="section-contact-home" >
 			<div class="row flex-parent-sm">
-				<div class="col-xs-12 col-sm-6 info-contact flex-child" style="background-image: url({{base_img}}{{brands[1].image}})">
+				<div class="col-xs-12 col-sm-6 info-contact flex-child" style="background-image: url({{base_img}}{{data['brands'][1].image}})">
 		            <div class="col-xs-12 content-contact sr_left">
 <!--
 		                <div class="col-xs-6 col-sm-6 col-lg-4">
@@ -272,11 +260,11 @@
 		                </div>
 -->
 
-		                <div class="col-xs-12 col-sm-offset-0 col-sm-12 col-lg-6 text-center" ng-init="redes()">
-		                	<h3 ng-if="redes.length > 0">SIGUENOS..</h3>
+		                <div class="col-xs-12 col-sm-offset-0 col-sm-12 col-lg-6 text-center">
+		                	<h3 ng-if="data['redes'].length > 0">SIGUENOS..</h3>
 			                <div class="social">
 					            <ul>
-					                <li ng-repeat="rede in redes"><a href="{{rede.value}}" target="_blank"><i class="fa fa-lg fa-{{rede.name}}"></i></a></li>
+					                <li ng-repeat="rede in data['redes']"><a href="{{rede.value}}" target="_blank"><i class="fa fa-lg fa-{{rede.name}}"></i></a></li>
 					            </ul>
 					        </div>
 		                	<img src="img/image001.png" alt="image001.png" width="100%">

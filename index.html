@@ -19,8 +19,8 @@
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- IMPORTANTE! MODIFICAR EL $urlBlueBox en la direccion donde se encuentra. Esto es para las peticiones AJAX -->
-	<!-- <script> urlBluebox = "http://bluebox.lareddominicana.org"; </script> -->
-		<script> urlBluebox = "http://ocean-bluebox.local/"; </script>
+	<script> urlBluebox = "http://bluebox.lareddominicana.org"; </script>
+		<!-- <script> urlBluebox = "http://ocean-bluebox.local/"; </script> -->
 	<!-- IMPORTANTE! ES PREFERIBLE MODIFICAR EN <BASE> EN LA DIRECCIÓN DONDE SE SUBIRA EL SITIO WEB( LA RED ) -->
 	<base href="">
 	<script>  document.getElementsByTagName("base")[0].setAttribute('href',window.location.href) </script>
@@ -82,7 +82,7 @@
 	    			<li><a ui-sref="discapacidad-republica-dominicana" class="dropdown-collapse">Discapacidad en República Dominicana</a></li>
 	    			<li><a ui-sref="publicaciones" class="dropdown-collapse">Publicaciones</a></li>
 	    			<li><a ui-sref="noticias" class="dropdown-collapse">Noticias</a></li>
-	    			<li><a ui-sref="contactanos" class="dropdown-collapse">Contáctanos</a></li>
+	    			<li><a ui-sref="contactanos" class="dropdown-collapse" >Contáctanos</a></li>
 	    		</ul>
 	    	</div><!-- /.navbar-collapse -->
 	    </div><!-- /.container-fluid -->
@@ -106,22 +106,18 @@
 
     <!-- jquery -->
 	<script src="bower_components/jquery/dist/jquery.min.js" ></script>
+    <!-- angularjs -->
+    <script src="bower_components/angular/angular.min.js"></script> 
+    <!-- angular-ui-router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
     <!-- bootstrap -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
     <!-- swiper -->
  	<script src="bower_components/swiper/dist/js/swiper.min.js" ></script>
     <!-- virus -->
 	<script src="bower_components/vivus/dist/vivus.min.js" ></script>
-    <!-- angularjs -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script> 
-    <!-- angular-ui-router -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
     <!-- googleapis -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_qtjgNmDECrbrMwelElSL3rVzp5TtIJg" async defer></script>
-    <!-- angular-animate -->
- 	<script src="bower_components/angular-animate/angular-animate.js"></script>
-    <!-- angular-resources -->
-	<script src="https://www.uno-de-piera.com/wp-content/uploads/2013/07/angular_resource.js"></script>
     <!-- angular-sanitize -->
 	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <!-- scrollreveal -->
